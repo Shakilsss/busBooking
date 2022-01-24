@@ -1,0 +1,205 @@
+body {
+    line-height: 1;
+    background: lightslategray
+}
+
+#app {
+    line-height: 1;
+    margin-top: 60px;
+}
+
+.appName {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid #ccc;
+    width: 20%;
+    line-height: 1.5;
+    background: linear-gradient(65deg, rgb(2, 68, 77), rgb(1, 97, 100));
+    color: white;
+    text-shadow: 5px 1px 5px black;
+}
+
+.appName:hover,
+.seatStatus:hover {
+    background: linear-gradient(65deg, rgb(1, 97, 100), rgb(2, 68, 77));
+    text-shadow: -5px -1px 5px black;
+}
+
+.busContainer {
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    border: 1px solid gray;
+}
+
+.seatColor {
+    margin-top: 30px;
+    height: 25px;
+    width: 30px;
+    border: 1px solid black;
+}
+
+.seatContainer {
+    /* display: flex; */
+    justify-content: space-between;
+    line-height: 3;
+    width: 20%;
+    border: 1px solid rgb(255, 255, 255);
+
+}
+
+.seatStatus {
+    display: flex;
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(65deg, rgb(2, 68, 77), rgb(1, 97, 100));
+    color: white;
+}
+
+
+
+.seatText {
+    padding-left: 5px;
+    font-size: 30px;
+
+}
+
+.bus {
+    border: 1px solid rgb(255, 255, 255);
+    padding: 5px;
+    padding-left: 40px;
+    float: left;
+    width: 25%;
+    background: linear-gradient(65deg, rgb(2, 68, 77), rgb(1, 97, 100));
+}
+
+.seats {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 11px;
+    padding: 5px;
+
+}
+
+.seat {
+    margin: 4px;
+    border: 1px solid gray;
+    padding: 10px;
+    min-height: 11px;
+    cursor: pointer;
+    font-size: 15px;
+    width: 28px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 1px 1px 5px black
+}
+
+.seat:nth-child(4n -2) {
+    margin-right: 25px;
+}
+
+.seat:nth-child(4n -1) {
+    margin-left: 40px;
+}
+
+.seat_available {
+    background: white;
+    color: black;
+
+}
+
+.seat_sold {
+    background: red;
+    color: white;
+
+
+}
+
+.seat_selected {
+    background: blue;
+    color: white;
+
+
+}
+
+.seat_booked {
+    background: gray;
+    color: white;
+
+
+}
+
+.infoSection {
+    /* display: flex; */
+    height: 79vh;
+    width: 40%;
+    padding: 2px;
+    border: 1px solid rgb(255, 252, 252);
+    background: linear-gradient(65deg, rgb(2, 68, 77), rgb(1, 97, 100));
+    color: white;
+
+
+}
+
+div.noText {
+    line-height: 20;
+    margin-left: 150px;
+    font-size: 25px;
+    color: white;
+
+}
+
+.order {
+    width: 80%;
+    margin: 0 auto;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+    /* text-align: center; */
+}
+
+.selected-seats th,
+.selected-seats td {
+    padding: 2px 9px;
+    text-align: left;
+}
+
+.confirm-button {
+    border: 1px solid blue;
+    background-color: #006ea2;
+    color: #fff;
+    cursor: pointer;
+    padding: 9px 44px;
+    width: 100%;
+    margin: 0;
+    margin-top: 11px;
+}
+
+.confirmed-dialog {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    padding: 33px;
+}
+
+.confirmed-dialog h3 {
+    color: green;
+}

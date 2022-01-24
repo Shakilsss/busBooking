@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css.css">
+    <script src="https://unpkg.com/vue@next"></script>
+    <!-- <script src="vue.js"></script> -->
+</head>
+<body>
+    <div id="app">
+<div class="confirmed-dialog" v-if="confirmed">
+  <h3>Ticket confirmed!</h3>
+  <hr>
+  <br>
+  <table class="selected-seats" style="width:50%; margin:0 auto"> 
+    <tr>
+      <th>Passenger Name</th>
+    <td>{{name}}</td>
+    <tr>
+      <th>Passenger Contact</th>
+    <td>{{phone}}</td>
+    
+    </tr>
+    <tr>
+      <th>Seats:</th>
+      <td>
+        <div v-for="(seat, i) in selectedSeats" :key="seat.name">
+          <div>
+            {{seat.name}}
+          </div>
+
+        </div>
+      </td>
+
+      
+    </tr>
+    <tr>
+      <th>Total Cost</th>
+      <td>Tk. {{totalCost}}</td>
+    </tr>
+
+  </table>
+
+  <br>
+
+  <button style="width:50%; margin:0 auto"
+    class="confirm-button"
+    @click="resetData"
+  >
+    Book Again
+  </button>
+</div>   
+       <div class="busContainer">  
+        <div class="appName">
+            <h1>{{appName1}}</h1>
+            <h1>{{appName2}}</h1>
+            <h1>{{appName3}}</h1>
+        </div>
+        <div class="seatContainer">
+         <div class="seatStatus" v-for="seat in seatStatus">
+         <div class="seatColor" :style="{backgroundColor: seat.color}"></div>
+         <div class="seatText">{{seat.text}}</div>
+     </div>  
+    </div>
+
+    <div class="bus">
+        <div class="seats">
+           <div class="seat"
+           :class="{
+               seat_sold: seat.type==='sold',
+               seat_selected: seat.type==='selected',
+               seat_booked: seat.type==='booked',
+               seat_available: seat.type==='available',
+           }" v-for="(seat,i) in seats" :key="seat.name" @click="selectSeat(i)">{{seat.name}}</div> 
+        </div>
+    </div>
+<div class="infoSection" >
+    <div class="noText"  v-if="selectedSeats.length ===0">
+          No Seat Selected
+    </div> 
+
+    <div class='order' v-else>
+    <h3 align='center' style="border-bottom:1px solid white;padding-bottom: 15px;">Details</h3>
+     <table>
+                <tr>
+                    <th>Seat Name</th>
+                    <th style="text-align:center">Price</th>
+                </tr>
+                <tr  v-for="seat in selectedSeats">
+                    <td>{{seat.name}}</td>
+                    <td style="text-align:center">{{seat.price}} Tk.</td>
+                </tr>
+
+                <tr>
+                    <td>Total</th>
+                    <td style="text-align:center"> {{totalCost}} Tk.</td>
+                </tr>
+
+                <tr v-if="appliedCoupon !== null">
+                    <td>DisCount</td>
+                    <td style="text-align:center">{{appliedCoupon.discount}} Tk.</td>
+                </tr>
+
+                <tr v-if="appliedCoupon !== null">
+                    <td>Sub Total</td>
+                    <td style="text-align:center">{{subTotalCost}} Tk.</td>
+                </tr>                
+
+            </table>
+       <div style="margin-top: 10px;" >
+           <span v-if="appliedCoupon === null">Having Coupon? <input type="text" v-model="couponCode" placeholder="Enter 10 Digit Coupon Code" style=" margin-left: 10px;padding:6px"></span>
+            <span class="offerCode" v-else> Aplied Coupon : {{appliedCoupon.code}}</span>    
+        </div>   
+
+
+        <div style="margin-top: 10px;" >
+            <h4 style="border-bottom: 1px solid white; padding-bottom: 6px">Buyer Info</h4>
+          <input type="text" v-model="name"  placeholder="Enter Name" style="padding:6px">
+          <input type="text" v-model="phone"  placeholder="Enter Phone Number" style=" margin-left: 10px;padding:6px">
+       </div> 
+        <div style="margin-top: 15px;" >
+            <button type="button" @click="confirm()" style="padding: 8px;width:25%; border-radius: 5px;  background:lightseagreen">Proceed</button>
+       </div>  
+
+    </div>
+    
+</div>
+
+        
+    </div>
+ 
+      
+    </div>
+
+<script src="apps.js"></script> 
+</body>
+</html>
